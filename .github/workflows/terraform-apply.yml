@@ -19,7 +19,7 @@ jobs:
 
       - name: Authenticate to GCP
         run: |
-          echo "${{ secrets.GCP_SA_KEY_BASE64 }}" | base64 --decode > sa.json
+          echo "${{ secrets.GCP_SA_KEY_64 }}" | base64 --decode > sa.json
           gcloud auth activate-service-account --key-file=sa.json
 
       - name: Terraform Init
