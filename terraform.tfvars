@@ -1,0 +1,9 @@
+project_id      = "snowfalke"
+region          = "us-central1"
+zone            = "us-central1-a"
+subnet_cidr     = "10.0.1.0/24"
+instance_type   = "e2-micro"
+node_count      = 2
+allowed_cidrs   = ["0.0.0.0/0"]   # You can restrict this in production
+ssh_public_key  = "/home/dba/.ssh/gcp_vm_key.pub"
+ssh_private_key = "/home/dba/.ssh/gcp_vm_key"
