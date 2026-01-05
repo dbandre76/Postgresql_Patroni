@@ -18,10 +18,9 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Authenticate to GCP
-        run: |
-          echo "${{ secrets.GCP_SA_KEY_64 }}"
-          echo "${{ secrets.GCP_SA_KEY_64 }}" | base64 --decode > sa.json
-          gcloud auth activate-service-account --key-file=sa.json
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
 
       - name: Terraform Init
         run: terraform init
