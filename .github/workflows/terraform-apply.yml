@@ -37,4 +37,4 @@ jobs:
         run: terraform init
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -var "ssh_public_key_content=${{ secrets.GCP_SSH_PUBLIC_KEY }}"

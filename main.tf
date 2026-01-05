@@ -164,7 +164,7 @@ resource "google_compute_instance" "postgres_nodes" {
 
   # Metadata (for SSH key injection)
   metadata = {
-    ssh-keys = "dba:${file(var.ssh_public_key)}"
+    ssh-keys = "dba:${file(var.ssh_public_key_content)}"
   }
 
   # Tags used for firewall rules

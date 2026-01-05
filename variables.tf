@@ -61,3 +61,7 @@ variable "archive_disk_size" {
   default     = 10
 }
 
+variable "ssh_public_key_content" {
+  type = string
+  description = "SSH public key content for GCP VM"
+}
