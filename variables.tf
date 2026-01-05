@@ -52,7 +52,7 @@ variable "root_disk_size" {
 variable "postgres_disk_size" {
   description = "Size of the /postgres disk in GB"
   type        = number
-  default     = 20
+  default     = 30
 }
 
 variable "archive_disk_size" {
