@@ -17,14 +17,21 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Write service account JSON
-        run: |
-          echo '${{ secrets.GCP_SA_KEY }}' > sa.json
+#      - name: Write service account JSON
+#        run: |
+#          echo '${{ secrets.GCP_SA_KEY }}' > sa.json
+#
+#      - name: Authenticate with GCP
+#        uses: google-github-actions/auth@v1
+#        with:
+#          credentials_file: sa.json
 
       - name: Authenticate with GCP
         uses: google-github-actions/auth@v1
         with:
-          credentials_file: sa.json
+          credentials_json: ${{ secrets.GCP_SA_KEY_JSON }}
+          create_credentials_file: true
+          export_environment_variables: true
 
       - name: Terraform Init
         run: terraform init
